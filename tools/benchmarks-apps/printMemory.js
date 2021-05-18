@@ -1,6 +1,6 @@
-function printMemory() {
+function printMemory(event) {
   const used = process.memoryUsage();
-  const obj = {};
+  const obj = {event};
 
   for (let key in used) {
     // console.log(`${key} ${} MB`);

@@ -1,4 +1,4 @@
-import {PlatformTest} from "@tsed/common/src";
+import {PlatformTest} from "@tsed/common";
 import {expect} from "chai";
 import {DbService} from "../services/db";
 

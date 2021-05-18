@@ -2,18 +2,28 @@
   "name": "@tsed/di",
   "version": "6.49.1",
   "description": "DI module for Ts.ED Framework",
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "dependencies": {
     "@tsed/core": "6.49.1",
     "chalk": "4.1.0",
     "globby": "11.0.3",
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "private": false,
-  "devDependencies": {},
-  "peerDependencies": {}
+  "devDependencies": {
+    "@tsed/logger": "^5.13.3"
+  },
+  "peerDependencies": {
+    "@tsed/core": "^6.48.6",
+    "@tsed/logger": "^5.13.3"
+  }
 }

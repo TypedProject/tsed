@@ -2,19 +2,35 @@
   "name": "@tsed/adapters-redis",
   "version": "6.49.1",
   "description": "Redis adapter for Ts.ED",
+  "private": false,
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "dependencies": {
-    "@tsed/adapters": "6.49.1"
+    "@tsed/adapters": "6.49.1",
+    "tslib": "2.2.0"
   },
-  "private": false,
   "devDependencies": {
     "@types/ioredis": "4.17.11",
+    "@tsed/core": "6.48.6",
+    "@tsed/adapters": "6.48.6",
     "ioredis": "4.19.4",
     "ioredis-mock": "5.2.0"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@tsed/common": "6.48.6",
+    "@tsed/di": "6.48.6",
+    "@tsed/core": "6.48.6",
+    "@tsed/adapters": "6.48.6",
+    "uuid": "8.3.2",
+    "ioredis": "^4.19.4",
+    "ioredis-mock": "^5.2.0"
+  }
 }

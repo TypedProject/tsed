@@ -1,4 +1,4 @@
-import {Inject, Injectable} from "@tsed/di/src";
+import {Inject, Injectable} from "@tsed/di";
 import {UseConnection} from "../../../src";
 import {UserRepository} from "../repository/UserRepository";
 

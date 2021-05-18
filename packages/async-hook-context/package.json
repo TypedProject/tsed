@@ -2,12 +2,7 @@
   "name": "@tsed/async-hook-context",
   "version": "6.49.1",
   "description": "Add Async Hook context support in Ts.ED",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
-  "scripts": {
-    "build": "tsc --build tsconfig.compile.json",
-    "tsc": "tsc --build tsconfig.check.json"
-  },
+  "private": false,
   "keywords": [
     "AsyncHooks",
     "Express",
@@ -24,15 +19,36 @@
     "ioc",
     "di"
   ],
+  "source": "./src/index.ts",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
+  "scripts": {
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json",
+    "tsc": "tsc --build tsconfig.check.json"
+  },
   "dependencies": {
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
+  },
+  "devDependencies": {
+    "@tsed/common": "6.48.6",
+    "@tsed/core": "6.48.6",
+    "@tsed/di": "6.48.6"
+  },
+
+  "devDependencies": {
+    "@tsed/common": "6.49.0",
+    "@tsed/core": "6.49.0",
+    "@tsed/di": "6.49.0"
   },
   "peerDependencies": {
     "@tsed/common": "^6.25.2",
     "@tsed/core": "^6.25.2",
     "@tsed/di": "^6.25.2"
   },
-  "private": false,
   "devDependencies": {
     "@tsed/common": "6.49.1",
     "@tsed/core": "6.49.1",

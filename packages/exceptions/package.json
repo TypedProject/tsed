@@ -2,14 +2,19 @@
   "name": "@tsed/exceptions",
   "version": "6.49.1",
   "description": "HTTP exceptions module for Ts.ED Framework and other pure Express application",
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "dependencies": {
     "@tsed/schema": "6.49.1",
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "private": false,
   "devDependencies": {},

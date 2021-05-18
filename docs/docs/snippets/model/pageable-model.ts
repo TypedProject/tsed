@@ -1,4 +1,4 @@
-import {isString} from "@tsed/core/src";
+import {isString} from "@tsed/core";
 import {OnDeserialize} from "@tsed/json-mapper";
 import {array, Default, Description, For, Integer, Min, oneOf, SpecTypes, string} from "@tsed/schema";
 

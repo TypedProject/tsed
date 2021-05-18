@@ -1,12 +1,7 @@
-if (process.env.NODE_ENV === "development") {
-  require("source-map-support").install();
-}
 import "reflect-metadata";
 
-export * from "./interfaces";
+export type {DecoratorParameters, DecoratorMethodParameters, StaticMethodDecorator, MetadataTypes, ValueOf, HashOf} from "./interfaces";
 export * from "./utils";
 export * from "./domain";
 export * from "./errors/UnsupportedDecoratorType";
-
-// decorators
 export * from "./decorators";

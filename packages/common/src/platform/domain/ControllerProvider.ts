@@ -12,15 +12,9 @@ export interface IChildrenController extends Type<any> {
 export class ControllerProvider<T = any> extends Provider<T> {
   @NotEnumerable()
   readonly entity: JsonEntityStore;
-  @NotEnumerable()
-  private router: PlatformRouterMethods;
-  /**
-   * Controllers that depend to this controller.
-   * @type {Array}
-   * @private
-   */
-  @NotEnumerable()
-  private _children: IChildrenController[] = [];
+
+  #router: PlatformRouterMethods;
+  #children: IChildrenController[] = [];
 
   constructor(provide: any) {
     super(provide);
@@ -50,7 +44,7 @@ export class ControllerProvider<T = any> extends Provider<T> {
    * @returns {Type<any>[]}
    */
   get children(): IChildrenController[] {
-    return this._children;
+    return this.#children;
   }
 
   /**
@@ -59,8 +53,8 @@ export class ControllerProvider<T = any> extends Provider<T> {
    */
   @Enumerable()
   set children(children: IChildrenController[]) {
-    this._children = children;
-    this._children.forEach((d) => (d.$parentCtrl = this));
+    this.#children = children;
+    this.#children.forEach((d) => (d.$parentCtrl = this));
   }
 
   /**
@@ -146,11 +140,11 @@ export class ControllerProvider<T = any> extends Provider<T> {
   }
 
   public getRouter<T extends PlatformRouterMethods = any>(): T {
-    return this.router as any;
+    return this.#router as any;
   }
 
   public setRouter(router: PlatformRouterMethods) {
-    this.router = router;
+    this.#router = router;
 
     return this;
   }

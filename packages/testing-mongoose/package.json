@@ -2,22 +2,30 @@
   "name": "@tsed/testing-mongoose",
   "version": "6.49.1",
   "description": "A TypeScript Framework on top of Express",
+  "private": false,
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "dependencies": {
     "mongodb-memory-server": "^6.3.3",
-    "tslib": "2.1.0"
-  },
-  "private": false,
-  "peerDependencies": {
-    "mongoose": "^5.12.2"
+    "tslib": "2.2.0"
   },
   "devDependencies": {
     "@tsed/common": "6.49.1",
     "@tsed/core": "6.49.1",
     "@tsed/mongoose": "6.49.1"
+  },
+  "peerDependencies": {
+    "@tsed/common": "6.48.6",
+    "@tsed/core": "6.48.6",
+    "@tsed/mongoose": "6.48.6",
+    "mongoose": "^5.12.2"
   }
 }

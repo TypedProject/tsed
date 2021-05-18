@@ -2,21 +2,34 @@
   "name": "@tsed/typeorm",
   "version": "6.49.1",
   "description": "TypeORM package for Ts.ED framework",
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "dependencies": {
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
   "private": false,
   "devDependencies": {
-    "@tsed/common": "6.49.1",
-    "@tsed/core": "6.49.1",
+    "@tsed/common": "^6.49.1",
+    "@tsed/core": "^6.49.1",
+    "@tsed/di": "^6.49.1",
+    "@tsed/schema": "^6.49.1",
+    "@tsed/json-mapper": "^6.49.1",
     "typeorm": "^0.2.26"
   },
   "peerDependencies": {
+    "@tsed/common": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
     "typeorm": "^0.2.26"
   }
 }

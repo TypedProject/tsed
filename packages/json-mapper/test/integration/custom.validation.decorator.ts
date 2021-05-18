@@ -1,6 +1,6 @@
-import {catchAsyncError} from "@tsed/core/src";
-import {BadRequest} from "@tsed/exceptions/src";
-import {JsonEntityFn, Property} from "@tsed/schema/src";
+import {catchAsyncError} from "@tsed/core";
+import {BadRequest} from "@tsed/exceptions";
+import {JsonEntityFn, Property} from "@tsed/schema";
 import {expect} from "chai";
 import {deserialize} from "../../src";
 import {BeforeDeserialize} from "../../src/decorators/beforeDeserialize";

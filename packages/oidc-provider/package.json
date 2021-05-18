@@ -2,11 +2,26 @@
   "name": "@tsed/oidc-provider",
   "version": "6.49.1",
   "description": "OIDC provider package for Ts.ED framework",
+  "private": false,
+  "keywords": [
+    "tsed",
+    "oidc",
+    "openid",
+    "oauth2",
+    "express",
+    "koa",
+    "security",
+    "authentication"
+  ],
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
-  "private": false,
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json",
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json",
     "start": "ts-node -r tsconfig-paths/register test/app/index.ts"
   },
   "dependencies": {
@@ -16,15 +31,26 @@
     "@types/uuid": "8.3.0",
     "jose2": "npm:jose@^2.0.4",
     "lowdb": "1.0.0",
-    "tslib": "2.1.0",
-    "uuid": "8.3.2"
+    "tslib": "2.2.0",
+    "uuid": "8.3.2",
+    "fs-extra": "9.0.1"
   },
   "devDependencies": {
     "@tsed/common": "6.49.1",
     "@tsed/core": "6.49.1",
+    "@tsed/di": "^6.49.1",
+    "@tsed/exceptions": "^6.49.1",
     "oidc-provider": "^7.3.0"
   },
   "peerDependencies": {
+    "@tsed/common": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
+    "@tsed/exceptions": "^6.48.6",
+    "@tsed/openspec": "^6.48.6",
+    "@tsed/logger": "^5.13.3",
     "oidc-provider": "^7.3.0"
   }
 }

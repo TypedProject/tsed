@@ -1,5 +1,5 @@
 import {BodyParams, Controller, Post} from "@tsed/common";
-import {Property} from "@tsed/schema/src";
+import {Property} from "@tsed/schema";
 
 class Product {
   @Property()

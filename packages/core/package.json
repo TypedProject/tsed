@@ -2,18 +2,24 @@
   "name": "@tsed/core",
   "version": "6.49.1",
   "description": "Core module for Ts.ED Framework",
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "dependencies": {
     "normalize-path": "3.0.0",
-    "reflect-metadata": "^0.1.13",
-    "source-map-support": "0.5.19",
-    "tslib": "2.1.0"
+    "reflect-metadata": "0.1.13",
+    "tslib": "2.2.0"
   },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "private": false,
-  "devDependencies": {},
+  "devDependencies": {
+    "source-map-support": "0.5.19"
+  },
   "peerDependencies": {}
 }

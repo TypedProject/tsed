@@ -2,23 +2,39 @@
   "name": "@tsed/graphql",
   "version": "6.49.1",
   "description": "GraphQL package for Ts.ED framework, based on Apollo-server-express and Type-graphql",
+  "keywords": [
+    "tsed",
+    "express",
+    "koa",
+    "graphql",
+    "typegraphql",
+    "decorators",
+    "apollo-server"
+  ],
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json",
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json",
     "start": "ts-node -r tsconfig-paths/register test/app/index.ts"
   },
   "dependencies": {
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
   "private": false,
   "devDependencies": {
-    "@tsed/common": "6.49.1",
-    "@tsed/core": "6.49.1",
+    "@tsed/common": "^6.49.1",
+    "@tsed/di": "^6.49.1",
+    "@tsed/core": "^6.49.1",
     "@types/graphql": "14.5.0",
     "apollo-datasource": "^0.7.2",
     "apollo-datasource-rest": "^0.9.3",
     "apollo-server-express": "^2.16.1",
+    "apollo-server-koa": "^2.16.1",
     "apollo-server-testing": "2.18.2",
     "class-validator": "0.13.1",
     "graphql": "15.5.0",
@@ -26,9 +42,20 @@
     "type-graphql": "1.1.1"
   },
   "peerDependencies": {
+    "@tsed/common": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
+    "@tsed/exceptions": "^6.48.6",
+    "@tsed/openspec": "^6.48.6",
+    "@tsed/logger": "^5.13.3",
+    "react-dom": "*",
+    "apollo-server-core": "^2.24.0",
     "apollo-datasource": "^0.7.3",
     "apollo-datasource-rest": "^0.10.0",
     "apollo-server-express": "^2.21.0",
+    "apollo-server-koa": "^2.21.0",
     "graphql": "^15.5.0 | 14.7.0",
     "type-graphql": "^1.1.1 | ^0.17.6"
   }

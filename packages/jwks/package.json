@@ -2,11 +2,16 @@
   "name": "@tsed/jwks",
   "version": "6.49.1",
   "description": "Utils to generate jwks pair keys",
+  "private": false,
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
-  "private": false,
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json",
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json",
     "start": "ts-node -r tsconfig-paths/register test/app/index.ts"
   },
   "dependencies": {

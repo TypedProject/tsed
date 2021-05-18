@@ -27,7 +27,7 @@
     "test:lint": "eslint packages --ext .ts",
     "test:lint:fix": "eslint packages --ext .ts --fix",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "build": "monorepo build",
+    "build": "monorepo build --verbose",
     "sync:packages": "monorepo sync packages",
     "docs:serve": "yarn api:build && yarn vuepress:serve ",
     "docs:build": "yarn api:build && yarn vuepress:build",
@@ -86,20 +86,17 @@
   ],
   "dependencies": {
     "@nuxtjs/opencollective": "0.3.2",
-    "@tsed/logger": "^5.12.1",
+    "@tsed/logger": "^5.13.3",
     "axios": "0.21.1",
     "ajv": "8.3.0",
-    "consolidate": "0.16.0",
-    "ejs": "^3.1.5",
-    "ejs-lint": "1.1.0",
     "change-case": "4.1.2",
     "globby": "11.0.3",
-    "lerna": "3.22.1",
-    "reflect-metadata": "0.1.13",
-    "uuid": "8.3.2"
+    "lerna": "4.0.0",
+    "uuid": "8.3.2",
+    "microbundle": "0.13.0"
   },
   "devDependencies": {
-    "@tsed/monorepo-utils": "1.17.0",
+    "@tsed/monorepo-utils": "1.17.8",
     "@typedproject/ts-doc": "4.0.13",
     "@types/axios": "0.14.0",
     "@types/chai": "4.2.12",
@@ -140,7 +137,7 @@
     "supertest": "6.0.0",
     "ts-node": "9.0.0",
     "tsconfig-paths": "3.9.0",
-    "tslib": "2.1.0",
+    "tslib": "2.2.0",
     "typescript": "4.2.4"
   },
   "directories": {

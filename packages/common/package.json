@@ -2,8 +2,13 @@
   "name": "@tsed/common",
   "version": "6.49.1",
   "description": "A TypeScript Framework on top of Express",
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "private": false,
   "keywords": [
     "Express",
@@ -42,14 +47,14 @@
     "url": "git+https://github.com/tsedio//tsed.git"
   },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "dependencies": {
     "@tsed/core": "6.49.1",
     "@tsed/di": "6.49.1",
     "@tsed/exceptions": "6.49.1",
     "@tsed/json-mapper": "6.49.1",
-    "@tsed/logger": "^5.12.1",
+    "@tsed/logger": "^5.13.3",
     "@tsed/schema": "6.49.1",
     "@types/cache-manager": "^3.4.0",
     "@types/json-schema": "7.0.7",
@@ -58,7 +63,7 @@
     "ejs": "^3.1.5",
     "json-schema": "^0.2.3",
     "on-finished": "2.3.0",
-    "tslib": "2.1.0",
+    "tslib": "2.2.0",
     "uuid": "8.3.2"
   },
   "devDependencies": {

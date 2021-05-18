@@ -1,6 +1,6 @@
-import {Context, Controller, Get, PlatformTest, Res, ResponseFilter} from "@tsed/common/src";
+import {Context, Controller, Get, PlatformTest, Res, ResponseFilter} from "@tsed/common";
 import {PlatformTestUtils} from "@tsed/platform-test-utils";
-import {Returns} from "@tsed/schema/src";
+import {Returns} from "@tsed/schema";
 import {expect} from "chai";
 import * as Sinon from "sinon";
 import SuperTest from "supertest";

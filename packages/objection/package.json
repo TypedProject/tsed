@@ -2,18 +2,30 @@
   "name": "@tsed/objection",
   "version": "6.49.1",
   "description": "Objection.js package for Ts.ED framework",
+  "private": false,
+  "keywords": [
+    "tsed",
+    "orm",
+    "objectionjs",
+    "knex"
+  ],
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "dependencies": {
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
-  "private": false,
   "devDependencies": {
     "@tsed/ajv": "6.49.1",
     "@tsed/core": "6.49.1",
+    "@tsed/common": "6.49.1",
     "@tsed/di": "6.49.1",
     "knex": "^0.21.5",
     "mssql": "^6.2.2",
@@ -26,8 +38,23 @@
     "sqlite3": "^5.0.0"
   },
   "peerDependencies": {
-    "@tsed/ajv": "6.15.0",
-    "@tsed/common": "6.15.0"
+    "@tsed/common": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
+    "@tsed/exceptions": "^6.48.6",
+    "@tsed/openspec": "^6.48.6",
+    "@tsed/logger": "^5.13.3",
+    "knex": "^0.21.5",
+    "mssql": "^6.2.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "objection": "2.2.14",
+    "oracledb": "^5.0.0",
+    "pg": "^8.3.3",
+    "sqlite": "^4.0.14",
+    "sqlite3": "^5.0.0"
   },
   "npmPublish": {
     "dist-tag": "alpha"

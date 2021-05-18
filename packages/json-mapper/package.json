@@ -2,8 +2,7 @@
   "name": "@tsed/json-mapper",
   "version": "6.49.1",
   "description": "Json mapper module for Ts.ED Framework",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "private": false,
   "keywords": [
     "TypeScript",
     "decorators",
@@ -16,17 +15,28 @@
     "classes",
     "tsed"
   ],
+  "source": "./src/index.ts",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
+  "scripts": {
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
+  },
   "dependencies": {
     "@tsed/core": "6.49.1",
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
   "devDependencies": {
+    "@tsed/core": "6.49.1",
     "@tsed/exceptions": "6.49.1",
     "@tsed/schema": "6.49.1"
   },
-  "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
-  },
-  "private": false,
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@tsed/core": "^6.48.6",
+    "@tsed/exceptions": "^6.48.6",
+    "@tsed/schema": "^6.48.6"
+  }
 }

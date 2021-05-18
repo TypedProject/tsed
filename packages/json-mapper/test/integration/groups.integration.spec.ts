@@ -1,4 +1,4 @@
-import {Groups, Property} from "@tsed/schema/src";
+import {Groups, Property} from "@tsed/schema";
 import {expect} from "chai";
 import {deserialize, serialize} from "../../src";
 

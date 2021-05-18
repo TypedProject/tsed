@@ -2,27 +2,47 @@
   "name": "@tsed/mongoose",
   "version": "6.49.1",
   "description": "Mongoose package for Ts.ED framework",
+  "keywords": [
+    "tsed",
+    "mongoose",
+    "typescript",
+    "decorators",
+    "orm"
+  ],
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
-  },
-  "dependencies": {
-    "change-case": "4.1.2",
-    "tslib": "2.1.0"
-  },
-  "peerDependencies": {
-    "mongoose": "^5.12.2"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "private": false,
   "directories": {
     "lib": "lib",
     "src": "src"
   },
+  "dependencies": {
+    "change-case": "4.1.2",
+    "tslib": "2.2.0"
+  },
   "devDependencies": {
     "@tsed/common": "6.49.1",
     "@tsed/core": "6.49.1",
     "@tsed/schema": "6.49.1",
+    "mongoose": "^5.12.2"
+  },
+  "peerDependencies": {
+    "@tsed/common": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
+    "@tsed/exceptions": "^6.48.6",
+    "@tsed/openspec": "^6.48.6",
+    "@tsed/logger": "^5.13.3",
     "mongoose": "^5.12.2"
   }
 }

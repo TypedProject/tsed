@@ -1,5 +1,5 @@
 import {ancestorsOf, nameOf} from "@tsed/core";
-import {Type} from "@tsed/core/src/interfaces/Type";
+import {Type} from "@tsed/core";
 import {expect} from "chai";
 import {Post} from "../../test/helpers/Post";
 import {

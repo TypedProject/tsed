@@ -7,8 +7,8 @@ import {
   ResponseFilter,
   ResponseFilterMethods
 } from "@tsed/common";
-import {isString} from "@tsed/core/src";
-import {OnDeserialize} from "@tsed/json-mapper/src";
+import {isString} from "@tsed/core";
+import {OnDeserialize} from "@tsed/json-mapper";
 import {PlatformTestUtils} from "@tsed/platform-test-utils";
 import {
   array,

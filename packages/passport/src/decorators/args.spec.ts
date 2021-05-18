@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {ParamMetadata, ParamTypes} from "@tsed/common/src";
+import {ParamMetadata, ParamTypes} from "@tsed/common";
 import {Arg, Args} from "./args";
 
 describe("@Args", () => {

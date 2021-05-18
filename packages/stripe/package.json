@@ -2,8 +2,7 @@
   "name": "@tsed/stripe",
   "version": "6.49.1",
   "description": "Stripe package for Ts.ED framework",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "private": false,
   "keywords": [
     "Stripe",
     "Ts.ED",
@@ -13,20 +12,35 @@
     "express",
     "koa"
   ],
+  "source": "./src/index.ts",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "dependencies": {
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
-  "private": false,
   "devDependencies": {
-    "@tsed/common": "6.49.1",
-    "@tsed/core": "6.49.1",
-    "@tsed/di": "6.49.1",
+    "@tsed/common": "^6.49.1",
+    "@tsed/core": "^6.49.1",
+    "@tsed/di": "^6.49.1",
+    "@tsed/schema": "^6.49.1",
+    "@tsed/json-mapper": "^6.49.1",
+    "@tsed/openspec": "^6.49.1",
     "stripe": "^8.129.0"
   },
   "peerDependencies": {
+    "@tsed/common": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
+    "@tsed/openspec": "^6.48.6",
     "@types/body-parser": "^1.19.0",
     "body-parser": "^1.19.0",
     "stripe": "^8.129.0"

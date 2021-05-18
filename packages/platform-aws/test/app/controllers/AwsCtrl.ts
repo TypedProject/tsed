@@ -1,4 +1,4 @@
-import {Controller, Get} from "@tsed/common/src";
+import {Controller, Get} from "@tsed/common";
 import {AwsContext, AwsEvent} from "../../../src";
 
 @Controller("/aws")

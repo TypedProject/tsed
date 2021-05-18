@@ -3,11 +3,14 @@
  * the `MyCustomComponent` constructor function.
  */
 // tslint:disable-next-line: variable-name
-export const Type = Function;
-
 /**
  *
  */
 export interface Type<T = any> extends Function {
   new (...args: any[]): T;
 }
+
+export const Type = Function;
+
+// @ts-ignore
+global.Type = Type;

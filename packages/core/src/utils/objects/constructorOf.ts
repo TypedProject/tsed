@@ -1,4 +1,4 @@
-import {Type} from "../../interfaces/Type";
+import {Type} from "../../domain/Type";
 
 /**
  * Get the class constructor

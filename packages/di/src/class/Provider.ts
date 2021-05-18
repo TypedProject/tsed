@@ -30,19 +30,11 @@ export class Provider<T = any> implements IProvider<T> {
   public useValue: any;
 
   @NotEnumerable()
-  protected _provide: TokenProvider;
+  private _useClass: Type<T> | any;
 
-  @NotEnumerable()
-  protected _useClass: Type<T>;
-
-  @NotEnumerable()
-  protected _instance: T;
-
-  @NotEnumerable()
-  private _store: Store;
-
-  @NotEnumerable()
-  private _tokenStore: Store;
+  #provide: TokenProvider;
+  #store: Store;
+  #tokenStore: Store;
 
   [key: string]: any;
 
@@ -52,17 +44,17 @@ export class Provider<T = any> implements IProvider<T> {
   }
 
   get token() {
-    return this._provide;
+    return this.#provide;
   }
 
   get provide(): TokenProvider {
-    return this._provide;
+    return this.#provide;
   }
 
   set provide(value: TokenProvider) {
     if (value) {
-      this._provide = isClass(value) ? classOf(value) : value;
-      this._tokenStore = this._store = Store.from(value);
+      this.#provide = isClass(value) ? classOf(value) : value;
+      this.#tokenStore = this.#store = Store.from(value);
     }
   }
 
@@ -78,7 +70,7 @@ export class Provider<T = any> implements IProvider<T> {
   set useClass(value: Type<T>) {
     if (isClass(value)) {
       this._useClass = classOf(value);
-      this._store = Store.from(value);
+      this.#store = Store.from(value);
     }
   }
 
@@ -91,7 +83,7 @@ export class Provider<T = any> implements IProvider<T> {
   }
 
   public get store(): Store {
-    return this._store;
+    return this.#store;
   }
 
   /**
@@ -130,14 +122,14 @@ export class Provider<T = any> implements IProvider<T> {
   }
 
   get(key: string) {
-    return this.store.get(key) || this._tokenStore.get(key);
+    return this.store.get(key) || this.#tokenStore.get(key);
   }
 
   isAsync(): boolean {
     return !!this.useAsyncFactory;
   }
 
-  clone(): Provider<any> {
+  clone(): Provider {
     const provider = new (classOf(this))(this.token);
 
     getEnumerableKeys(this).forEach((key) => {

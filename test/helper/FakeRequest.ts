@@ -1,4 +1,4 @@
-import {PlatformContext} from "@tsed/common/src/platform/domain/PlatformContext";
+import {PlatformContext} from "@tsed/common";
 import * as Sinon from "sinon";
 import {SinonStub} from "sinon";
 

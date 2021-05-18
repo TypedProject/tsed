@@ -2,26 +2,42 @@
   "name": "@tsed/adapters",
   "version": "6.49.1",
   "description": "Database adapters for Ts.ED",
+  "private": false,
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "dependencies": {
     "@types/lowdb": "1.0.9",
     "@types/uuid": "8.3.0",
     "fs-extra": "9.0.1",
     "lowdb": "1.0.0",
-    "tslib": "2.1.0",
+    "tslib": "2.2.0",
     "uuid": "8.3.2"
   },
-  "private": false,
   "devDependencies": {
-    "@tsed/ajv": "6.49.1",
-    "@tsed/core": "6.49.1",
-    "@tsed/di": "6.49.1",
-    "@tsed/json-mapper": "6.49.1",
+    "@tsed/ajv": "^6.49.1",
+    "@tsed/core": "^6.49.1",
+    "@tsed/di": "^6.49.1",
+    "@tsed/common": "^6.49.1",
+    "@tsed/schema": "^6.49.1",
+    "@tsed/json-mapper": "^6.49.1",
     "@types/fs-extra": "9.0.6"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@tsed/ajv": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/common": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
+    "change-case": "^4.1.2",
+    "lodash": "^4.17.21"
+  }
 }

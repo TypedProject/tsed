@@ -1,4 +1,4 @@
-import {Type} from "./Type";
+import type {Type} from "../domain/Type";
 
 export interface MetadataTypes<T = any, C = any> {
   type?: Type<T> | T;

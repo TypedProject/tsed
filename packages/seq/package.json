@@ -2,8 +2,6 @@
   "name": "@tsed/seq",
   "version": "6.49.1",
   "description": "Seq package for Ts.ED framework",
-  "main": "./lib/index.js",
-  "typings": "./src/index.ts",
   "private": false,
   "author": {
     "name": "OskarLebuda"
@@ -16,16 +14,31 @@
       "name": "Romain Lenzotti"
     }
   ],
+  "source": "./src/index.ts",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "dependencies": {
-    "@tsed/logger-seq": "^5.12.1",
-    "tslib": "2.1.0"
+    "@tsed/logger-seq": "^5.13.3",
+    "tslib": "2.2.0"
   },
   "devDependencies": {
     "@tsed/common": "6.49.1",
     "@tsed/core": "6.49.1"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@tsed/common": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
+    "@tsed/openspec": "^6.48.6",
+    "@tsed/logger": "^5.13.3"
+  }
 }

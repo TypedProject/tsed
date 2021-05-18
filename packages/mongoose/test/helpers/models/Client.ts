@@ -1,4 +1,4 @@
-import {CollectionOf} from "@tsed/schema/src";
+import {CollectionOf} from "@tsed/schema";
 import {Model, ObjectID, Ref} from "../../../src";
 import {SelfUser} from "./User";
 

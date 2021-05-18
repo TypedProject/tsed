@@ -1,5 +1,5 @@
 import {Controller, Get} from "@tsed/common";
-import {AcceptMime} from "@tsed/common/src/mvc/decorators/method/acceptMime";
+import {AcceptMime} from "@tsed/common";
 
 @Controller("/mypath")
 export class MyCtrl {

@@ -1,4 +1,4 @@
-import {Type} from "../interfaces/Type";
+import {Type} from "./Type";
 import {classOf, decoratorTypeOf, isArrayOrArrayClass, isClass, isDate, isObject, isPrimitiveOrPrimitiveClass, nameOf} from "../utils";
 import {DecoratorTypes} from "./DecoratorTypes";
 

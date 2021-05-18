@@ -1,4 +1,4 @@
-import {QueryParams} from "@tsed/common/src";
+import {QueryParams} from "@tsed/common";
 import {expect} from "chai";
 import {getSpec, SpecTypes} from "../src";
 import {OperationPath, Path, Property, Returns} from "../src/decorators";

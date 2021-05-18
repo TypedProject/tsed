@@ -30,7 +30,7 @@ const PROPERTIES: Map<string | symbol, any[]> = new Map<string | symbol, any[]>(
 /**
  * @stable
  */
-export class Metadata {
+export abstract class Metadata {
   /**
    * Gets the metadata value for the provided metadata key on the target object or its prototype chain.
    * @param key A key used to store and retrieve metadata.

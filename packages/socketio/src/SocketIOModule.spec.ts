@@ -1,5 +1,5 @@
 import {HttpServer, HttpsServer, PlatformTest} from "@tsed/common";
-import {PlatformConfiguration} from "@tsed/common/src/config";
+import {PlatformConfiguration} from "@tsed/common";
 import {expect} from "chai";
 import Sinon from "sinon";
 import {SocketIOModule, SocketIOServer, SocketIOService} from "./index";

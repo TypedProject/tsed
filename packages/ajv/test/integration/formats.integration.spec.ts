@@ -1,5 +1,5 @@
-import {PlatformTest} from "@tsed/common/src";
-import {Format, getJsonSchema} from "@tsed/schema/src";
+import {PlatformTest} from "@tsed/common";
+import {Format, getJsonSchema} from "@tsed/schema";
 import {expect} from "chai";
 import {AjvService} from "../../src";
 import {Formats} from "../../src/decorators/formats";

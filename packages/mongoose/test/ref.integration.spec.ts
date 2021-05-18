@@ -1,7 +1,7 @@
 import {BodyParams, Controller, Get, Inject, PlatformTest, Post, QueryParams} from "@tsed/common";
 import {deserialize} from "@tsed/json-mapper";
 import {MongooseModel} from "@tsed/mongoose";
-import {PlatformExpress} from "@tsed/platform-express/src";
+import {PlatformExpress} from "@tsed/platform-express";
 import {TestMongooseContext} from "@tsed/testing-mongoose";
 import {expect} from "chai";
 import faker from "faker";

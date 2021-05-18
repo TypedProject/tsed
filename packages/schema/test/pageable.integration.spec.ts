@@ -1,4 +1,4 @@
-import {QueryParams} from "@tsed/common/src";
+import {QueryParams} from "@tsed/common";
 import {expect} from "chai";
 import {array, getJsonSchema, getSpec, oneOf, SpecTypes, string} from "../src";
 import {

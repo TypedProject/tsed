@@ -1,4 +1,4 @@
-import {PlatformHandler, PlatformRouter} from "@tsed/common/src/platform";
+import {PlatformHandler, PlatformRouter} from "@tsed/common";
 import {InjectorService} from "@tsed/di";
 import {expect} from "chai";
 import Express from "express";

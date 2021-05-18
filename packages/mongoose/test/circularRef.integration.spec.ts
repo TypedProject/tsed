@@ -1,6 +1,6 @@
 import {Injectable, PlatformTest} from "@tsed/common";
 import {Inject} from "@tsed/di";
-import {getJsonSchema} from "@tsed/schema/src";
+import {getJsonSchema} from "@tsed/schema";
 import {TestMongooseContext} from "@tsed/testing-mongoose";
 import {expect} from "chai";
 import {MongooseModel} from "../src";

@@ -10,7 +10,7 @@ import {
   UseParam,
   ValidationPipe
 } from "@tsed/common";
-import {BadRequest} from "@tsed/exceptions/src";
+import {BadRequest} from "@tsed/exceptions";
 import {getJsonSchema, MinLength, Property, Required, Schema} from "@tsed/schema";
 import {expect} from "chai";
 

@@ -2,8 +2,13 @@
   "name": "@tsed/openspec",
   "version": "6.49.1",
   "description": "OpenSpec2 and OpenSpec3 interfaces declarations for TypeScript application",
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "keywords": [
     "TypeScript",
     "interfaces",
@@ -15,7 +20,7 @@
     "JsonSchema"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json"
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json"
   },
   "private": false,
   "dependencies": {},

@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.compile.json",
   "compilerOptions": {
+    "module": "ESNext",
     "rootDir": "src",
-    "outDir": "lib",
-    "esModuleInterop": true
+    "outDir": "lib"
   },
   "include": [
     "src"

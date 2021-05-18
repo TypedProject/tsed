@@ -1,9 +1,4 @@
-/**
- * @module common/core
- */
-/** */
-
-import {Type} from "../interfaces";
+import {Type} from "../domain/Type";
 
 /**
  * The `@Deprecated()` decorators wraps the given method in such a way that it is marked as deprecated.

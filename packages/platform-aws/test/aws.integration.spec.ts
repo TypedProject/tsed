@@ -1,6 +1,6 @@
 import {PlatformTest} from "@tsed/common";
 import "@tsed/platform-express";
-import {PlatformExpress} from "@tsed/platform-express/src";
+import {PlatformExpress} from "@tsed/platform-express";
 import {expect} from "chai";
 import SuperTest from "supertest";
 import {Server} from "./app/Server";

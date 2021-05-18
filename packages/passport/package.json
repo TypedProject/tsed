@@ -2,14 +2,29 @@
   "name": "@tsed/passport",
   "version": "6.49.1",
   "description": "Passport package for Ts.ED framework",
+  "keywords": [
+    "tsed",
+    "express",
+    "passportjs",
+    "security",
+    "jwt",
+    "facebook",
+    "google",
+    "oauth2"
+  ],
+  "source": "./src/index.ts",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json",
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json",
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
   "devDependencies": {
     "@tsed/common": "6.49.1",
@@ -29,5 +44,17 @@
     "lib": "lib",
     "src": "src"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@tsed/common": "^6.48.6",
+    "@tsed/core": "^6.48.6",
+    "@tsed/di": "^6.48.6",
+    "@tsed/schema": "^6.48.6",
+    "@tsed/json-mapper": "^6.48.6",
+    "@tsed/openspec": "^6.48.6",
+    "@tsed/logger": "^5.13.3",
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "passport-strategy": "^1.0.0"
+  }
 }

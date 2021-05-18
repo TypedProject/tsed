@@ -1,5 +1,4 @@
 import {BodyParams, Controller, Post} from "@tsed/common";
-import {deserialize} from "@tsed/json-mapper/src";
 import {expect} from "chai";
 import {boolean, date, GenericOf, Generics, getJsonSchema, getSpec, number, Property, SpecTypes, string} from "../src";
 import {validateSpec} from "./helpers/validateSpec";

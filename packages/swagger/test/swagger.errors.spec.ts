@@ -1,5 +1,5 @@
 import {Controller, Get, PlatformTest} from "@tsed/common";
-import {PlatformExpress} from "@tsed/platform-express/src";
+import {PlatformExpress} from "@tsed/platform-express";
 import {Required, Returns} from "@tsed/schema";
 import {expect} from "chai";
 import SuperTest from "supertest";

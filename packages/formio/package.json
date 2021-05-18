@@ -2,8 +2,6 @@
   "name": "@tsed/formio",
   "version": "6.49.1",
   "description": "Formio package for Ts.ED framework",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
   "keywords": [
     "Formio",
     "Ts.ED",
@@ -12,12 +10,19 @@
     "decorators",
     "express"
   ],
+  "source": "./src/index.ts",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.js",
+    "default": "./lib/index.modern.js"
+  },
   "scripts": {
-    "build": "tsc --build tsconfig.compile.json",
+    "build": "microbundle --target node --no-compress --format modern,cjs --tsconfig ./tsconfig.compile.json",
     "start": "ts-node -r tsconfig-paths/register test/app/index.ts"
   },
   "dependencies": {
-    "tslib": "2.1.0"
+    "tslib": "2.2.0"
   },
   "private": false,
   "devDependencies": {
@@ -26,9 +31,18 @@
     "@tsed/di": "6.49.1",
     "@tsed/mongoose": "6.49.1",
     "formio": "^2.0.0",
-    "mongoose": "^5.12.2"
+    "mongoose": "^5.12.2",
+    "mongodb": "*",
+    "express": "^4.17.1"
   },
   "peerDependencies": {
-    "formio": "^2.0.0"
+    "@tsed/common": "6.48.6",
+    "@tsed/core": "6.48.6",
+    "@tsed/di": "6.48.6",
+    "@tsed/mongoose": "6.48.6",
+    "formio": "^2.0.0",
+    "mongoose": "^5.12.2",
+    "mongodb": "*",
+    "express": "^4.17.1"
   }
 }

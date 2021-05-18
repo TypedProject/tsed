@@ -1,7 +1,7 @@
 import {Inject, Injectable, InjectorService} from "@tsed/common";
-import {MongooseConnectionOptions} from "@tsed/mongoose";
-import {Db} from "mongodb";
-import {Mongoose} from "mongoose";
+import type {MongooseConnectionOptions} from "@tsed/mongoose";
+import type {Db} from "mongodb";
+import type {Mongoose} from "mongoose";
 import {promisify} from "util";
 import {Formio} from "../domain/Formio";
 import {FormioConfig} from "../domain/FormioConfig";

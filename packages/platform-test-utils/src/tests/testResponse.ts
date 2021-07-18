@@ -1,5 +1,5 @@
 import {Context, Controller, Get, Next, PathParams, PlatformResponse, PlatformTest, Post, Res} from "@tsed/common";
-import {ContentType, Ignore, Property, Status} from "@tsed/schema";
+import {ContentType, Description, Enum, Example, Ignore, Property, Required, Returns, Status, Title} from "@tsed/schema";
 import axios from "axios";
 import {expect} from "chai";
 import {createReadStream} from "fs";
@@ -31,6 +31,20 @@ class MyModel extends Base {
 class EmptyModel {
   raw: any;
   affected?: number | null;
+}
+
+export enum TestEnum {
+  one = "one",
+  two = "two"
+}
+
+export class ResponseWithEnum {
+  @Title("title")
+  @Description("description")
+  @Example(TestEnum.one)
+  @Enum(TestEnum)
+  @Required()
+  example: TestEnum;
 }
 
 @Controller("/response")
@@ -176,6 +190,14 @@ class TestResponseParamsCtrl {
     return axios.get(`https://api.tsed.io/rest/github/typed/test`, {
       responseType: "json"
     });
+  }
+
+  @Get("/scenario16")
+  @(Returns(200, ResponseWithEnum).Description("Successful example Response"))
+  async testScenario16(): Promise<ResponseWithEnum> {
+    return {
+      example: TestEnum.one
+    };
   }
 }
 
@@ -388,6 +410,15 @@ export function testResponse(options: PlatformTestOptions) {
       const response = await request.get("/rest/response/scenario15b").expect(401);
 
       expect(response.headers["content-type"]).to.equal("application/json; charset=utf-8");
+    });
+  });
+  describe("Scenario16: Return response with enum", () => {
+    it("should return the response (200)", async () => {
+      const {body} = await request.get("/rest/response/scenario16").expect(200);
+
+      expect(body).to.deep.equal({
+        example: "one"
+      });
     });
   });
 }
